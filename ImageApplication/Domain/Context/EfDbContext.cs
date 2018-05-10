@@ -11,6 +11,5 @@ namespace Domain.Context
     public class EfDbContext : DbContext
     {
         public DbSet<ImageItem> ImageItems { get; set; }
-        public DbSet<ImageDescription> ImageDescriptions { get; set; } 
     }
 }

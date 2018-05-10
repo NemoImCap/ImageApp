@@ -1,4 +1,7 @@
+using System.IO;
+using System.Reflection;
 using Domain.Context;
+using Domain.Domain.Entity;
 
 namespace Domain.Migrations
 {
@@ -16,18 +19,22 @@ namespace Domain.Migrations
 
         protected override void Seed(EfDbContext context)
         {
-            //  This method will be called after migrating to the latest version.
-
-            //  You can use the DbSet<T>.AddOrUpdate() helper extension method 
-            //  to avoid creating duplicate seed data. E.g.
-            //
-            //    context.People.AddOrUpdate(
-            //      p => p.FullName,
-            //      new Person { FullName = "Andrew Peters" },
-            //      new Person { FullName = "Brice Lambson" },
-            //      new Person { FullName = "Rowan Miller" }
-            //    );
-            //
+            var root = Path.GetPathRoot(AppDomain.CurrentDomain.BaseDirectory);
+            var getFiles = Directory.GetFiles(root + "\\ImageApplication\\DeployRepository\\ImageApplication\\Web.ImageApplication\\Content\\images");
+            foreach (var path in getFiles)
+            {
+                var file = new FileStream(path, FileMode.Open);
+                byte[] bytes = new byte[file.Length];
+                var model = new ImageItem
+                {
+                    ImageData = bytes,
+                    Description = "DB init",
+                    ImageMimeType = "image/jpeg"
+                };
+                file.Read(bytes, 0, (int)file.Length);
+                context.Entry(model).State = System.Data.Entity.EntityState.Added;
+                context.ImageItems.Add(model);
+            }
         }
     }
 }

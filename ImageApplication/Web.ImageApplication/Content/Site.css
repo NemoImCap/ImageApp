@@ -15,4 +15,396 @@ select,
 textarea {
     max-width: 280px;
 }
+.area {
+    width: 68%;
+}
+body {
+  background: #e8e8e8;
+}
 
+.container {
+  margin: 0 auto;
+}
+
+
+/* Example wrapper */
+
+.wrap {
+  position: relative;
+  margin: 3em 0;
+}
+
+
+/* Frame */
+
+.frame {
+  height: 250px;
+  line-height: 250px;
+  overflow: hidden;
+}
+
+.frame ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  font-size: 50px;
+}
+
+.frame ul li {
+  float: left;
+  width: 227px;
+  height: 100%;
+  margin: 0 1px 0 0;
+  padding: 0;
+  background: #333;
+  color: #ddd;
+  text-align: center;
+  cursor: pointer;
+}
+
+.frame ul li.active {
+  color: #fff;
+  background: #a03232;
+}
+
+
+/* Scrollbar */
+
+.scrollbar {
+  margin: 0 0 1em 0;
+  height: 2px;
+  background: #ccc;
+  line-height: 0;
+}
+
+.scrollbar .handle {
+  width: 100px;
+  height: 100%;
+  background: #292a33;
+  cursor: pointer;
+}
+
+.scrollbar .handle .mousearea {
+  position: absolute;
+  top: -9px;
+  left: 0;
+  width: 100%;
+  height: 20px;
+}
+
+
+/* Pages */
+
+.pages {
+  list-style: none;
+  margin: 20px 0;
+  padding: 0;
+  text-align: center;
+}
+
+.pages li {
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  margin: 0 4px;
+  text-indent: -999px;
+  border-radius: 10px;
+  cursor: pointer;
+  overflow: hidden;
+  background: #fff;
+  box-shadow: inset 0 0 0 1px rgba(0, 0, 0, .2);
+}
+
+.pages li:hover {
+  background: #aaa;
+}
+
+.pages li.active {
+  background: #666;
+}
+
+
+/* Controls */
+
+.controls {
+  margin: 25px 0;
+  text-align: center;
+}
+
+
+/* One Item Per Frame example*/
+
+.oneperframe {
+  height: 300px;
+  line-height: 300px;
+}
+
+.oneperframe ul li {
+  width: 1140px;
+}
+
+.oneperframe ul li.active {
+  background: #333;
+}
+
+
+/* Crazy example */
+
+.crazy ul li:nth-child(2n) {
+  width: 100px;
+  margin: 0 4px 0 20px;
+}
+
+.crazy ul li:nth-child(3n) {
+  width: 300px;
+  margin: 0 10px 0 5px;
+}
+
+.crazy ul li:nth-child(4n) {
+  width: 400px;
+  margin: 0 30px 0 2px;
+}
+
+
+div#ngHelperBusyLayer {
+    display: none;
+    background-color:       white;
+    filter:                 alpha(opacity=50);      /* IE */
+    opacity:                0.5;                    /* Safari, Opera */
+    -moz-opacity:           0.50;                   /* FireFox */
+    z-index:                20;
+    height:                 100%;
+    width:                  100%;
+    background-repeat:      no-repeat;
+    background-position:    center;
+    position:               absolute;
+    top:                    0;
+    left:                   0;
+}
+
+div#ngHelperBusyLayer.busy {
+    display: block;
+}
+
+div#ngHelperBusyLayer .wrapper {
+    position: relative;
+    top: 25%;
+
+    margin-left: auto;
+    margin-right: auto;
+    width: 11em;
+    height: 11em;
+}
+
+body.ngHelperBusyLayerNoScroll {
+    overflow: hidden;
+}
+
+.message {
+    position: relative;
+    margin-top: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    color: #000000;
+}
+
+.loader {
+    position: relative;
+    font-size: 10px;
+    margin: 0;
+
+    margin-left: auto;
+    margin-right: auto;
+
+    text-indent: -9999em;
+    width: 11em;
+    height: 11em;
+    border-radius: 50%;
+    background: lightgray;
+    background: -moz-linear-gradient(left, lightgray 10%, rgba(255, 255, 255, 0) 42%);
+    background: -webkit-linear-gradient(left, lightgray 10%, rgba(255, 255, 255, 0) 42%);
+    background: -o-linear-gradient(left, lightgray 10%, rgba(255, 255, 255, 0) 42%);
+    background: -ms-linear-gradient(left, lightgray 10%, rgba(255, 255, 255, 0) 42%);
+    background: linear-gradient(to right, lightgray 10%, rgba(255, 255, 255, 0) 42%);
+    -webkit-animation: load3 1.4s infinite linear;
+    animation: load3 1.4s infinite linear;
+}
+.loader:before {
+    width: 50%;
+    height: 50%;
+    background: lightgray;
+    border-radius: 100% 0 0 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+    content: '';
+}
+.loader:after {
+    background: #ffffff;
+    width: 75%;
+    height: 75%;
+    border-radius: 50%;
+    content: '';
+    margin: auto;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+}
+@-webkit-keyframes load3 {
+    0% {
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+    100% {
+        -webkit-transform: rotate(360deg);
+        transform: rotate(360deg);
+    }
+}
+@keyframes load3 {
+    0% {
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+    100% {
+        -webkit-transform: rotate(360deg);
+        transform: rotate(360deg);
+    }
+}
+
+#blah {
+    width: 400px;
+    height: 400px;
+}
+
+#footer {
+   position:fixed;
+   left:0px;
+   bottom:0px;
+   height:30px;
+   width:100%;
+   background:#999;
+}
+
+/* IE 6 */
+* html #footer {
+   position:absolute;
+   top:expression((0-(footer.offsetHeight)+(document.documentElement.clientHeight ? document.documentElement.clientHeight : document.body.clientHeight)+(ignoreMe = document.documentElement.scrollTop ? document.documentElement.scrollTop : document.body.scrollTop))+'px');
+}
+#home_map_canvas {
+    width: 400px;
+    height: 400px;
+}
+
+
+.img-item {
+    border:none;
+    display:block
+      
+}
+#outer{
+    width:100%;
+    margin:auto;
+}
+#photos {
+    list-style:none;
+    padding:5px;
+    width:100%;/* width added */
+}
+.wrap {
+    border:5px solid #ccc;
+    width: 100%;
+    overflow: auto;
+    padding-bottom:14px;
+}
+.wrap li {
+   margin:0 10px;
+    text-align:center;
+    display:-moz-inline-box; /* gecko*/  
+        display:inline-block;/* opera and safari*/            
+    padding:5px;
+    margin:5px;
+}
+
+.item-img {
+    width: 350px;
+    height: 200px;
+    cursor: pointer;
+
+}
+
+/*[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+  display: none !important;
+}*/
+
+.slide {
+    width: 100%;
+    height: 250px;
+    overflow: auto;
+    white-space: nowrap;
+    font-size: 14px;
+}
+
+
+[ng-cloak]#splash {
+    display:block!important
+}
+[ng-cloak] {
+    display:none
+}#splash {
+     display:none;
+     position:absolute;
+     top:45%;
+     left:50%;
+     width:6em;
+      height:6em;
+      overflow:hidden;
+      border-radius:100%;
+      z-index:0
+ }@-webkit-keyframes fade {
+      from{opacity:1}to{opacity:.2}}
+  @keyframes fade {
+      from{opacity:1}to{opacity:.2}}
+  @-webkit-keyframes
+   rotate {
+      from {
+          -webkit-transform:rotate(0deg)}to {-webkit-transform:rotate(360deg)
+       }}
+  @keyframes
+   rotate {
+      from {
+          transform:rotate(0deg)
+      }to {
+           transform:rotate(360deg)
+       }}
+  #splash::after,#splash::before {
+      content:'';
+      position:absolute;
+      top:0;
+      left:0;
+      width:100%;
+      height:100%
+  }#splash::before {
+       background:linear-gradient(to right,green,#ff0);
+       -webkit-animation:rotate 2.5s linear infinite;
+       animation:rotate 2.5s linear infinite
+   }#splash::after {
+        background:linear-gradient(to bottom,red,#00f);
+        -webkit-animation:fade 2s infinite alternate,rotate 2.5s linear reverse infinite;animation:fade 2s infinite alternate,rotate 2.5s linear reverse infinite
+    }#splash-spinner {
+         position:absolute;
+         width:100%;
+         height:100%;
+         z-index:1;
+         border-radius:100%;
+         box-sizing:border-box;
+         border-left:.5em solid transparent;
+         border-right:.5em solid transparent;
+         border-bottom:.5em solid rgba(255,255,255,.3);
+         border-top:.5em solid rgba(255,255,255,.3);
+         -webkit-animation:rotate .8s linear infinite;
+         animation:rotate .8s linear infinite
+     }

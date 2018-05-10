@@ -79,11 +79,6 @@ namespace Domain.Repository
             Context.SaveChanges();
         }
 
-        public T AddEntity(T Entity)
-        {
-            throw new NotImplementedException();
-        }
-
         T IRepository<T>.Find(T entity)
         {
             return Context.Set<T>().Find(entity);
