@@ -12,10 +12,10 @@ namespace Domain.Repository
 {
     public class Repository<T> : IDisposable, IRepository<T> where T : class
     {
-        private EfDbContext Context { get; set; }
+        private ImageAppDBContext Context { get; set; }
 
 
-        public Repository(EfDbContext context)
+        public Repository(ImageAppDBContext context)
         {
             Context = context;
         }

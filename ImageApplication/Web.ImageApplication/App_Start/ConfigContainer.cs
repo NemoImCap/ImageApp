@@ -1,19 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Reflection;
-using System.Web;
-using System.Web.Compilation;
-using System.Web.Mvc;
+﻿using System.Web.Mvc;
 using Autofac;
 using Autofac.Integration.Mvc;
-using Autofac.Integration.WebApi;
 using Domain.Context;
 using Domain.Domain.Services;
 using Domain.Repository;
 using Domain.Services;
-using Web.ImageApplication;
-
 
 namespace Web.ImageApplication
 {
@@ -26,7 +17,7 @@ namespace Web.ImageApplication
 
             builder.RegisterControllers(typeof(MvcApplication).Assembly);
 
-            builder.RegisterType<EfDbContext>().AsSelf().InstancePerLifetimeScope();
+            builder.RegisterType<ImageAppDBContext>().AsSelf().InstancePerLifetimeScope();
 
             // Generic Repository Registration
             builder.RegisterGeneric(typeof(Repository<>)).AsSelf();
@@ -38,7 +29,6 @@ namespace Web.ImageApplication
 
 
             DependencyResolver.SetResolver(new AutofacDependencyResolver(container));
-
         }
     }
 }

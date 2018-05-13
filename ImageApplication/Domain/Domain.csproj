@@ -107,16 +107,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Context\EfDbContext.cs" />
+    <Compile Include="Context\ImageAppDBContext.cs" />
     <Compile Include="Domain\Entity\ImageItem.cs" />
     <Compile Include="Domain\Services\IImageItemService.cs" />
-    <Compile Include="Migrations\201702141433593_InitDb.cs" />
-    <Compile Include="Migrations\201702141433593_InitDb.Designer.cs">
-      <DependentUpon>201702141433593_InitDb.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201702150840092_CorrectModel.cs" />
-    <Compile Include="Migrations\201702150840092_CorrectModel.Designer.cs">
-      <DependentUpon>201702150840092_CorrectModel.cs</DependentUpon>
+    <Compile Include="Migrations\201805111909014_InitMigration.cs" />
+    <Compile Include="Migrations\201805111909014_InitMigration.Designer.cs">
+      <DependentUpon>201805111909014_InitMigration.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -129,11 +125,8 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201702141433593_InitDb.resx">
-      <DependentUpon>201702141433593_InitDb.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201702150840092_CorrectModel.resx">
-      <DependentUpon>201702150840092_CorrectModel.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201805111909014_InitMigration.resx">
+      <DependentUpon>201805111909014_InitMigration.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
