@@ -1,0 +1,18 @@
+﻿<Window x:Class="BuildAndDeployApp.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:BuildAndDeployApp"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="650" Width="450">
+    <Grid>
+        <TextBox x:Name="directoryPath" HorizontalAlignment="Left" Height="23" Margin="41,68,0,0" TextWrapping="Wrap" Text="Output directory part" VerticalAlignment="Top" Width="359"/>
+        <Label x:Name="label" Content="OutputPath&#xA;" HorizontalAlignment="Left" Margin="41,44,0,0" VerticalAlignment="Top" Height="24"/>
+        <Button x:Name="buildButton" Content="Build&#xD;&#xA;" HorizontalAlignment="Left" Margin="41,159,0,0" VerticalAlignment="Top" Width="75" Height="21" Click="button_Click"/>
+        <Button x:Name="deployButton" Content="Deploy" HorizontalAlignment="Left" Margin="121,160,0,0" VerticalAlignment="Top" Width="75"/>
+        <TextBox x:Name="applicationPath" HorizontalAlignment="Left" Height="35" Margin="41,120,0,0" TextWrapping="Wrap" Text="Source Application path" VerticalAlignment="Top" Width="359"/>
+        <Label x:Name="label1" Content="Application path" HorizontalAlignment="Left" Margin="41,96,0,0" VerticalAlignment="Top"/>
+
+    </Grid>
+</Window>
