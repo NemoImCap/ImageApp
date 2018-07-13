@@ -5,14 +5,16 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:BuildAndDeployApp"
         mc:Ignorable="d"
-        Title="MainWindow" Height="650" Width="450">
+        Title="MainWindow" Height="650" Width="450" Background="#FFF0E5E5">
     <Grid>
-        <TextBox x:Name="directoryPath" HorizontalAlignment="Left" Height="23" Margin="41,68,0,0" TextWrapping="Wrap" Text="Output directory part" VerticalAlignment="Top" Width="359"/>
+        <TextBox x:Name="directoryPath" HorizontalAlignment="Left" Height="23" Margin="41,68,0,0" TextWrapping="Wrap" Text="E:\batches\Apps\Test" VerticalAlignment="Top" Width="359"/>
         <Label x:Name="label" Content="OutputPath&#xA;" HorizontalAlignment="Left" Margin="41,44,0,0" VerticalAlignment="Top" Height="24"/>
-        <Button x:Name="buildButton" Content="Build&#xD;&#xA;" HorizontalAlignment="Left" Margin="41,159,0,0" VerticalAlignment="Top" Width="75" Height="21" Click="button_Click"/>
-        <Button x:Name="deployButton" Content="Deploy" HorizontalAlignment="Left" Margin="121,160,0,0" VerticalAlignment="Top" Width="75"/>
-        <TextBox x:Name="applicationPath" HorizontalAlignment="Left" Height="35" Margin="41,120,0,0" TextWrapping="Wrap" Text="Source Application path" VerticalAlignment="Top" Width="359"/>
+        <Button x:Name="buildButton" Content="Build&#xD;&#xA;" HorizontalAlignment="Left" Margin="41,159,0,0" VerticalAlignment="Top" Width="75" Height="21" Click="button_Click" Background="#FFABDE6D"/>
+        <Button x:Name="deployButton" Content="Deploy" HorizontalAlignment="Left" Margin="121,160,0,0" VerticalAlignment="Top" Width="75" Background="#FF189AA0"/>
+        <TextBox x:Name="applicationPath" HorizontalAlignment="Left" Height="35" Margin="41,120,0,0" TextWrapping="Wrap" Text="e:\work\WebWorkspace\BBox.WebWorkspace.App\BBox.WebWorkspace.App.csproj" VerticalAlignment="Top" Width="359"/>
         <Label x:Name="label1" Content="Application path" HorizontalAlignment="Left" Margin="41,96,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="msBuildInput" HorizontalAlignment="Left" Height="23" Margin="41,580,0,0" TextWrapping="Wrap" Text="MSBuild path or EnvirementVariable with path" VerticalAlignment="Top" Width="359"/>
+        <Label x:Name="label2" Content="MSBuild" HorizontalAlignment="Left" Margin="41,549,0,0" VerticalAlignment="Top" Width="200"/>
 
     </Grid>
 </Window>
