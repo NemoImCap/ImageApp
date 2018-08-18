@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Diagnostics;
 using System.IO;
+using System.Text;
+using System.Threading;
 using System.Windows;
 
 namespace BuildAndDeployApp
@@ -35,27 +37,55 @@ namespace BuildAndDeployApp
                 var applicationDirectory = directoryPath.Text;
                 var isDirectoryExists = Directory.Exists(applicationDirectory);
                 if (!isDirectoryExists)
+                {
                     Directory.CreateDirectory(applicationDirectory);
+                }
                 var msBuildCommand =
                     $"msbuild {applicationPath.Text} /p:Platform=AnyCPU;Configuration=Release;PublishDestination={applicationDirectory} /t:PublishToFileSystem";
 
 
                 var pStartInfo =
-                    new ProcessStartInfo("cmd.exe",
-                        @"/k ""cd /d " + msBuildPath + @"""")
+                    new ProcessStartInfo("cmd.exe", @"/k ""cd /d " + msBuildPath + @"""")
                     {
                         RedirectStandardInput = true,
                         RedirectStandardOutput = true,
-                        UseShellExecute = false
+                        RedirectStandardError = true,
+                        UseShellExecute = false,
+                        CreateNoWindow = true
                     };
-
-                var process = Process.Start(pStartInfo);
-                if (process != null)
+                using (var process = Process.Start(pStartInfo))
                 {
+                    if (process == null)
+                    {
+                        return;
+                    }
+                    if (showOutputCheckbox.IsChecked.GetValueOrDefault())
+                    {
+                        process.OutputDataReceived += ProcessOnOutputDataReceived();
+                    }
+                    else
+                    {
+                        process.OutputDataReceived += (o, args) =>
+                        {
+                            Dispatcher.InvokeAsync(() =>
+                            {
+                                progressBar.Visibility = Visibility.Visible;
+                                progressBar.IsIndeterminate = true;
+                                if (string.IsNullOrEmpty(args.Data))
+                                {
+                                    progressBar.Visibility = Visibility.Hidden;
+                                    progressBar.IsIndeterminate = false;
+                                }
+                            });
+
+                        };
+                    }
+
                     process.StandardInput.WriteLine(msBuildCommand);
                     process.StandardInput.Close();
-                    var outputString = process.StandardOutput.ReadToEnd();
-                    MessageBox.Show(outputString);
+                    process.BeginOutputReadLine();
+
+
                 }
             }
             catch (Exception exception)
@@ -63,6 +93,16 @@ namespace BuildAndDeployApp
                 Console.WriteLine(exception);
                 throw;
             }
+        }
+
+        private DataReceivedEventHandler ProcessOnOutputDataReceived()
+        {
+            return (p, evt) =>
+            {
+                Dispatcher.Invoke(() => outputMsbuild.Text += evt.Data);
+                Dispatcher.Invoke(() => outputMsbuild.CaretIndex = outputMsbuild.Text.Length);
+                Dispatcher.Invoke(() => outputMsbuild.ScrollToEnd());
+            };
         }
     }
 }
